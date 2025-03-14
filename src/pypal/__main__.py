@@ -1,4 +1,4 @@
-from generator import generate_name, generate_address, generate_phone_number
+from generator import generate_name, generate_address, generate_phone_number, generate_profile
 
 def main():
     print("=== Example: Human Names ===")
@@ -18,6 +18,12 @@ def main():
 
     print("\n=== Example: International Phone Number ===")
     print(generate_phone_number(style="international"))
+
+    print("\n=== Example: Full Profile ===")
+    print(generate_profile(include_email=True, include_phone=True))
+
+    print("\n=== Example: Profile Without Email ===")
+    print(generate_profile(include_email=False, include_phone=True))
 
 if __name__ == "__main__":
     main()

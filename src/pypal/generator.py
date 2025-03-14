@@ -1,6 +1,5 @@
 """
-This module provides a function to retrieve a pseudo-random line from Lewis Carroll's poem "The Jabberwocky".
-Read more about Jabberwocky here: https://en.wikipedia.org/wiki/Jabberwocky
+This module provides a function to generate random names, address, phonenumber, and profile.
 """
 import random
 
@@ -58,3 +57,20 @@ def generate_phone_number(style="domestic"):
         raise ValueError("Invalid style. Choose 'domestic' or 'international'.")
 
 
+# profiles.py
+def generate_profile(include_email=True, include_phone=True):
+    name = generate_name()[0]
+    address = generate_address()
+    email = f"{name.split()[0].lower()}@example.com" if include_email else None
+    phone = generate_phone_number() if include_phone else None
+
+    profile = {
+        "name": name,
+        "address": address
+    }
+    if include_email:
+        profile["email"] = email
+    if include_phone:
+        profile["phone"] = phone
+
+    return profile
