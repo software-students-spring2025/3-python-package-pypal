@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pypal"
-description = "A package that generates random emails, names, phonenumbers and profile."
+description = "A package that generates random address, names, phonenumbers and profile."
 version = "0.1.0"
 authors = [
   { name="Xiangyu Lin", email="xl4358@nyu.edu" },
