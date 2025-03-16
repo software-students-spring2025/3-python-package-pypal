@@ -1,4 +1,4 @@
-from generator import generate_name, generate_address, generate_phone_number, generate_profile
+from pypal.generator import generate_name, generate_address, generate_phone_number, generate_profile
 
 def main():
     print("=== Example: Human Names ===")
