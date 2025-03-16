@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pypal"
+name = "pypal_nyu"
 description = "A package that generates random address, names, phonenumbers and profile to fulfill website registration requirements."
 version = "0.1.0"
 authors = [
