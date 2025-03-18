@@ -1,3 +1,3 @@
-# Python Package Exercise
+# Pypal - A Random Profile Generator
 
-An exercise to create a Python package, build it, test it, distribute it, and use it. See [instructions](./instructions.md) for details.
+![Build Status](https://github.com/software-students-spring2025/3-python-package-pypal/actions/workflows/event-logger.yml/badge.svg)
