@@ -214,3 +214,108 @@ def test_generate_phone_number_case_sensitive_fail(invalid_style):
     with pytest.raises(ValueError):
         generate_phone_number(style=invalid_style)
 
+
+# Test of the generate_profile function can generate valid profiles
+# Test the correctness of generating prfile with both email and phone numbers included
+def test_generate_profile_full():
+    profile = generate_profile(include_email=True, include_phone=True)
+    assert isinstance(profile, dict)
+    assert "name" in profile
+    assert "address" in profile
+    assert "email" in profile
+    assert "phone" in profile
+
+    # Validate individual components
+    assert isinstance(profile["name"], str) and " " in profile["name"]  
+    assert isinstance(profile["address"], str) and profile["address"].strip() != ""  
+    assert isinstance(profile["email"], str) and "@" in profile["email"] and profile["email"].endswith("@example.com")
+    assert isinstance(profile["phone"], str) and profile["phone"].strip() != ""
+
+# Test the correctness of generating profile with only email
+def test_generate_profile_email():
+    profile = generate_profile(include_email=True, include_phone=False)
+    assert isinstance(profile, dict)
+    assert "name" in profile
+    assert "address" in profile
+    assert "email" in profile
+    assert "phone" not in profile
+
+    # Validate individual components
+    assert isinstance(profile["name"], str) and " " in profile["name"]
+    assert isinstance(profile["address"], str) and profile["address"].strip() != ""
+    assert isinstance(profile["email"], str) and "@" in profile["email"] and profile["email"].endswith("@example.com")
+    
+# Test the correctness of generating profile with only phone
+def test_generate_profile_phone():
+    profile = generate_profile(include_email=False, include_phone=True)
+    assert "name" in profile
+    assert "address" in profile
+    assert "email" not in profile
+    assert "phone" in profile
+
+    # Validate individual components
+    assert isinstance(profile["name"], str) and " " in profile["name"]
+    assert isinstance(profile["address"], str) and profile["address"].strip() != ""
+    assert isinstance(profile["phone"], str) and profile["phone"].strip() != ""
+
+# Test the correctness of generating profile with only name and address
+def test_generate_profile_basic():
+    profile = generate_profile(include_email=False, include_phone=False)
+    assert isinstance(profile, dict)
+    assert "name" in profile
+    assert "address" in profile
+    assert "email" not in profile  
+    assert "phone" not in profile 
+
+    # Validate individual components
+    assert isinstance(profile["name"], str) and " " in profile["name"]
+    assert isinstance(profile["address"], str) and profile["address"].strip() != ""
+
+# Test creating valid email with name
+def test_generate_profile_email_format():
+    profile = generate_profile(include_email=True, include_phone=False)
+    first_name = profile["name"].split()[0].lower()
+    expected_email = f"{first_name}@example.com"
+
+    assert profile["email"] == expected_email
+
+# Test profile contains only expected info
+def test_generate_profile_contents():
+    profile = generate_profile(include_email=True, include_phone=True)
+    assert set(profile.keys()) == {"name", "address", "email", "phone"}  
+
+    profile = generate_profile(include_email=True, include_phone=False)
+    assert set(profile.keys()) == {"name", "address", "email"}
+
+    profile = generate_profile(include_email=False, include_phone=True)
+    assert set(profile.keys()) == {"name", "address", "phone"}
+
+    profile = generate_profile(include_email=False, include_phone=False)
+    assert set(profile.keys()) == {"name", "address"}
+
+# Test profile info order
+def test_generate_profile_order():
+    profile = generate_profile(include_email=True, include_phone=True)
+    expected_order = ["name", "address", "email", "phone"]
+    assert list(profile.keys()) == expected_order  
+
+    profile = generate_profile(include_email=False, include_phone=True)
+    expected_order = ["name", "address", "phone"]
+    assert list(profile.keys()) == expected_order  
+
+    profile = generate_profile(include_email=True, include_phone=False)
+    expected_order = ["name", "address", "email"]
+    assert list(profile.keys()) == expected_order  
+
+    profile = generate_profile(include_email=False, include_phone=False)
+    expected_order = ["name", "address"]
+    assert list(profile.keys()) == expected_order
+
+# Test function never returns empty strings silently
+def test_generate_profile_not_empty():
+    profile = generate_profile(include_email=True, include_phone=True)
+
+    assert profile["name"].strip() != ""  
+    assert profile["address"].strip() != ""  
+    assert profile["email"].strip() != ""  
+    assert profile["phone"].strip() != ""  
