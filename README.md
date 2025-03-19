@@ -173,8 +173,11 @@ git push origin your-feature-branch
 
 ## Teammates
 [Sophia Gu](https://github.com/Sophbx)
+
 [Jason Lin](https://github.com/JasonLIN0226)
+
 [Allen Ni](https://github.com/AllenNi66)
+
 [Zifan Zhao](https://github.com/Exiam6)
 
 ## Running the Project on Any Platform
