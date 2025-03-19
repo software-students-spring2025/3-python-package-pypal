@@ -144,16 +144,6 @@ def test_generate_address_uk_long():
     assert any(postcode in result for postcode in UK_POSTCODES) # contains valid us postal code
     assert "UK" in result
 
-# Test empty country input
-def test_generate_address_empty_country():
-    with pytest.raises(ValueError):
-        generate_address(country="", format="short")
-
-# Test empty format input
-def test_generate_address_empty_format():
-    with pytest.raises(ValueError):
-        generate_address(country="US", format="")
-
 # Test function does not silently return empty string
 def test_generate_address_not_empty():
     result = generate_address(country="US", format="short")
@@ -161,15 +151,66 @@ def test_generate_address_not_empty():
 
 # Edge case: Test invalid country inputs
 # Representative invalid countries
-@pytest.mark.parametrize("invalid_country", ["France", "Germany", "Us", "us", "uS", "Uk", "uk", "uK", 123, True, False, None])
+@pytest.mark.parametrize("invalid_country", ["France", "Germany", "Us", "us", "uS", "Uk", "uk", "uK", "", 123, True, False, None])
 def test_generate_address_invalid_country(invalid_country):
     with pytest.raises(ValueError):
         generate_address(country=invalid_country, format="short")
 
 # Edge case: Test invalid format inputs
 # Representative invalid format
-@pytest.mark.parametrize("invalid_format", ["SHORT", "LONG", "medium", 123, True, False, None])
-def test_generate_address_invalid_country(invalid_format):
+@pytest.mark.parametrize("invalid_format", ["SHORT", "LONG", "medium", "", 123, True, False, None])
+def test_generate_address_invalid_format(invalid_format):
     with pytest.raises(ValueError):
         generate_address(country="US", format=invalid_format)
+
+
+# Test if the domestic phone numbers generated are valid
+def test_generate_phone_number_domestic():
+    result = generate_phone_number(style="domestic")
+    assert isinstance(result, str)  
+
+    # Check format
+    assert len(result) == 14  # Expected format: "(xxx) xxx-xxxx"
+    assert result[0] == "("  
+    assert result[4] == ")"  
+    assert result[5] == " "  
+    assert result[9] == "-"  
+
+    # Extract things in between, make sure there are 10 numbers
+    numeric_parts = result.replace("(", "").replace(")", "").replace(" ", "").replace("-", "")
+    assert numeric_parts.isdigit()  
+    assert len(numeric_parts) == 10  
+
+# Test if the international phone numbers generated are valid
+def test_generated_phone_number_international():
+    result = generate_phone_number(style="international")
+    assert isinstance(result, str)
+
+    # Check format
+    assert len(result) == 15 # Expected format: "+1-xxx-xxx-xxxx"
+    assert result[0] == "+"
+    assert result[1] == "1"
+    assert result[2] == "-"
+    assert result[6] == "-"
+    assert result[10] == "-"
+
+    # Extract things in between, make sure there are 10 numbers
+    numeric_parts = result.replace("+1-", "").replace("-", "")
+    assert numeric_parts.isdigit()  
+    assert len(numeric_parts) == 10 
+
+# Test function does not return an empty string
+def test_generate_phone_number_not_empty():
+    result = generate_phone_number(style="domestic")
+    assert result.strip() != ""  
+
+    result = generate_phone_number(style="international")
+    assert result.strip() != ""  
+
+# Edge case: Test invalid style inputs
+# Representative invalid style
+@pytest.mark.parametrize("invalid_style", ["Domestic", "INTERNATIONAL", "mobiile", "random", "", 123, True, False, None])
+def test_generate_phone_number_case_sensitive_fail(invalid_style):
+    with pytest.raises(ValueError):
+        generate_phone_number(style=invalid_style)
 

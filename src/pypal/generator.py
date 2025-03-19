@@ -35,11 +35,15 @@ def generate_address(country="US", format="short"):
             return f"{street}, {city}"
         elif format == "long":
             return f"{street}, {city}, {random.choice(postcodes)}, USA"
+        else:
+            raise ValueError("Invalid format. Choose 'short' or 'long'.")
     elif country == "UK":
         if format == "short":
             return f"{street}, {city}"
         elif format == "long":
             return f"{street}, {city}, {random.choice(uk_postcodes)}, UK"
+        else:
+            raise ValueError("Invalid format. Choose 'short' or 'long'.")
     else:
         raise ValueError("Invalid country. Choose 'US' or 'UK'.")
 
