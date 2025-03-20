@@ -13,10 +13,12 @@ If you want to import the package, install from: [https://pypi.org/project/pypal
 ```sh 
 pip install pypal-nyu 
 ```
-Currently our package has version 0.1.6. Note 
+Currently our package has version 0.1.6. 
+
+Note 
 
 ```sh 
-pip install pypal
+pip install pypal 
 ```
 will give you a different package.
 
@@ -139,7 +141,7 @@ cd 3-python-package-pypal
 
 ### **2. Set Up Virtual Environment**
 
-#### Using Python's venv:
+#### Using Pipenv:
 ```sh
 pip install pipenv
 pipenv install --dev
@@ -152,7 +154,7 @@ conda activate pypal
 ```
 
 ### **3. Build the Package**
-Build the pacakge locally:
+Build the package locally:
 ```sh
 pip install .
 ```
