@@ -22,6 +22,13 @@ def generate_name(type="human", length=2):
 
 # addresses.py
 def generate_address(country="US", format="short"):
+    
+    # Validate input parameters strictly
+    if country not in ("US", "UK"):
+        raise ValueError("Invalid country. Choose 'US' or 'UK'.")
+    if format not in ("short", "long"):
+        raise ValueError("Invalid format. Choose 'short' or 'long'.")
+    
     streets = ["123 Maple St", "456 Oak Ave", "789 Pine Rd", "101 Elm St", "202 Birch Blvd", "303 Cedar Ln", "404 Spruce Ct", "505 Walnut Way"]
     cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego"]
     postcodes = ["10001", "90001", "60601", "77001", "85001", "19101", "78201", "92101"]

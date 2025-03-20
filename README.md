@@ -6,7 +6,7 @@ Pypal is a Python package that generates profiles with random human-like and fan
 
 ## Installation
 
-If you want to import the package, install from: [https://pypi.org/project/pypal-nyu/0.1.3/] using pip:
+If you want to import the package, install from: [https://pypi.org/project/pypal-nyu/] using pip:
 
 ```sh 
 pip install pypal-nyu 
