@@ -11,6 +11,7 @@ If you want to import the package, install from: [https://pypi.org/project/pypal
 ```sh 
 pip install pypal-nyu 
 ```
+Currently our package has version 0.1.5
 
 ## Usage
 ### **Function: generate_name**
