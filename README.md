@@ -129,8 +129,10 @@ source venv/bin/activate   # On macOS/Linux
 venv\Scripts\activate      # On Windows
 ```
 #### Using Conda:
-conda create -n myenv python=3.12
+```sh
+conda create -n pypal python=3.12
 conda activate pypal
+```
 
 ### **3. Build the Package**
 Build the pacakge locally:
