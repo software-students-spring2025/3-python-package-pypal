@@ -4,7 +4,6 @@ from pypal.generator import generate_profile
 def generate_extended_profile(include_email=True, include_phone=True, include_occupation=True, include_bio=True):
     """
     Generates an extended profile including additional details with our pypal package:
-      - Date of Birth (dob)
       - Occupation
       - A short bio
 

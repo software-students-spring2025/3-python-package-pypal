@@ -136,13 +136,12 @@ cd 3-python-package-pypal
 ```
 
 ### **2. Set Up Virtual Environment**
-Our package doesn't require ny other dependency for now
 
 #### Using Python's venv:
 ```sh
-python -m venv pypal
-source venv/bin/activate   # On macOS/Linux
-venv\Scripts\activate      # On Windows
+pip install pipenv
+pipenv install --dev
+pipenv shell 
 ```
 #### Using Conda:
 ```sh
