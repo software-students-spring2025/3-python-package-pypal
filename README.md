@@ -1,14 +1,15 @@
 # Pypal - A Random Profile Generator
+![Build Status](https://github.com/software-students-spring2025/3-python-package-pypal/actions/workflows/event-logger.yml/badge.svg)
+
 
 Pypal is a Python package that generates profiles with random human-like and fantasy names, US or UK addresses, domestic or international phone numbers, and emails. It is useful for testing, development, and anonymized data generation.
-![Build Status](https://github.com/software-students-spring2025/3-python-package-pypal/actions/workflows/event-logger.yml/badge.svg)
 
 ## Installation
 
-If you want to import the package, install from: [PyPI](A LINK TO PACKAGE PAGE ON PYPI) using pip:
+If you want to import the package, install from: [https://pypi.org/project/pypal-nyu/] using pip:
 
 ```sh 
-pip install nyu-pypal
+pip install pypal-nyu 
 ```
 
 ## Usage
@@ -32,8 +33,6 @@ print(generate_name(type="human", length=1))
 # Generate multiple fantasy names
 print(generate_name(type="fantasy", length=3))
 ```
-#### **Link to Python Program**
-
 
 ### **Function: generate_address**
 Generates a random address in **US or UK format**, either in a **short** or **long** version.
@@ -59,8 +58,6 @@ print(generate_address(country="US", format="short"))
 # Generate a UK address in long format
 print(generate_address(country="UK", format="long"))
 ```
-#### **Link to Python Program**
-
 
 ### **Function: `generate_phone_number`**
 Generates a **random US phone number**, either in **domestic format** or with an **international country code**.
@@ -83,8 +80,6 @@ print(generate_phone_number(style="domestic"))
 # Generate an international phone number
 print(generate_phone_number(style="international"))
 ```
-#### **Link to Python Program**
-
 
 ### **Function: `generate_profile`**
 Generates a **full random user profile**, including a **name, address, phone number, and email**.
@@ -114,9 +109,6 @@ print(generate_profile(include_email=True, include_phone=True))
 # Generate a profile with only a name & address
 print(generate_profile(include_email=False, include_phone=False))
 ```
-#### **Link to Python Program**
-
-
 ## Contributing
 
 We welcome contributions from the community! Follow these steps to set up your development environment:
@@ -129,33 +121,34 @@ cd 3-python-package-pypal
 ```
 
 ### **2. Set Up Virtual Environment**
-Create and activate a virtual environment:
+Our package doesn't require ny other dependency for now
+
+#### Using Python's venv:
 ```sh
-python -m venv venv
+python -m venv pypal
 source venv/bin/activate   # On macOS/Linux
 venv\Scripts\activate      # On Windows
 ```
-
-### **3. Install Dependencies**
-Install all required packages:
+#### Using Conda:
 ```sh
-pip install -r requirements.txt
+conda create -n pypal python=3.12
+conda activate pypal
 ```
 
-### **4. Build the Package**
+### **3. Build the Package**
 Build the pacakge locally:
 ```sh
 pip install .
 ```
 
-### **5. Run Unit Tests**
+### **4. Run Unit Tests**
 Ensure all tests pass before submitting a pull request:
 ```sh
 cd tests
 pytest test_generator.py
 ```
 
-### **6. Make Your Contributions**
+### **5. Make Your Contributions**
 #### **1. Create a new branch:**
 ```sh
 git checkout -b your-feature-branch
@@ -181,6 +174,4 @@ git push origin your-feature-branch
 [Zifan Zhao](https://github.com/Exiam6)
 
 ## Running the Project on Any Platform
-
-
-## Environment Variables & Data Setup
+To ensure cross-platform compatibility, we recommend using a virtual environment as described in the Contributing section. The package is tested on Linux, macOS, and Windows. Feel free to explore our work!
