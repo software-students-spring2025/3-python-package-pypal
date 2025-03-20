@@ -1,14 +1,15 @@
 # Pypal - A Random Profile Generator
+![Build Status](https://github.com/software-students-spring2025/3-python-package-pypal/actions/workflows/event-logger.yml/badge.svg)
+
 
 Pypal is a Python package that generates profiles with random human-like and fantasy names, US or UK addresses, domestic or international phone numbers, and emails. It is useful for testing, development, and anonymized data generation.
-![Build Status](https://github.com/software-students-spring2025/3-python-package-pypal/actions/workflows/event-logger.yml/badge.svg)
 
 ## Installation
 
 If you want to import the package, install from: [https://pypi.org/project/pypal-nyu/0.1.3/] using pip:
 
 ```sh 
-pip install nyu-pypal
+pip install pypal-nyu 
 ```
 
 ## Usage
