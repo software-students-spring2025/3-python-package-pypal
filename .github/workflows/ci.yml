@@ -1,8 +1,11 @@
 name: Python Package CI
 
 on:
+  push:
+    branches: [main, zifan]
   pull_request:
-    branches: [ main ]
+    types: [opened, closed]
+    branches: [main, zifan]
 
 jobs:
   build-and-test:
