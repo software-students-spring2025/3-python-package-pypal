@@ -1,7 +1,7 @@
 import random
-from pypal import generate_profile, generate_date_of_birth
+from pypal.generator import generate_profile 
 
-def generate_extended_profile(include_email=True, include_phone=True, include_dob=True, include_occupation=True, include_bio=True):
+def generate_extended_profile(include_email=True, include_phone=True, include_occupation=True, include_bio=True):
     """
     Generates an extended profile including additional details with our pypal package:
       - Date of Birth (dob)
@@ -10,9 +10,6 @@ def generate_extended_profile(include_email=True, include_phone=True, include_do
 
     """
     profile = generate_profile(include_email, include_phone)
-
-    if include_dob:
-        profile["dob"] = generate_date_of_birth()
 
     if include_occupation:
         occupations = [
