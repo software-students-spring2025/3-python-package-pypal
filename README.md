@@ -120,6 +120,7 @@ cd 3-python-package-pypal
 ```
 
 ### **2. Set Up Virtual Environment**
+Our package doesn't require ny other dependency for now
 
 #### Using Python's venv:
 ```sh
@@ -131,20 +132,20 @@ venv\Scripts\activate      # On Windows
 conda create -n myenv python=3.12
 conda activate pypal
 
-### **4. Build the Package**
+### **3. Build the Package**
 Build the pacakge locally:
 ```sh
 pip install .
 ```
 
-### **5. Run Unit Tests**
+### **4. Run Unit Tests**
 Ensure all tests pass before submitting a pull request:
 ```sh
 cd tests
 pytest test_generator.py
 ```
 
-### **6. Make Your Contributions**
+### **5. Make Your Contributions**
 #### **1. Create a new branch:**
 ```sh
 git checkout -b your-feature-branch
