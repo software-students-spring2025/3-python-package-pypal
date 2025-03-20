@@ -13,8 +13,25 @@ If you want to import the package, install from: [https://pypi.org/project/pypal
 ```sh 
 pip install pypal-nyu 
 ```
+Currently our package has version 0.1.6. 
 
-## Usage
+Note 
+
+```sh 
+pip install pypal 
+```
+will give you a different package.
+
+## Example Usage
+
+After you install pypal-nyu from pypi, try
+
+```sh 
+python example_usage.py
+```
+to try to randomly generate some names for usage.
+
+## Function Usage
 ### **Function: generate_name**
 Generates a random name (either a **human name** or a **fantasy name**).
 
@@ -123,13 +140,12 @@ cd 3-python-package-pypal
 ```
 
 ### **2. Set Up Virtual Environment**
-Our package doesn't require ny other dependency for now
 
-#### Using Python's venv:
+#### Using Pipenv:
 ```sh
-python -m venv pypal
-source venv/bin/activate   # On macOS/Linux
-venv\Scripts\activate      # On Windows
+pip install pipenv
+pipenv install --dev
+pipenv shell 
 ```
 #### Using Conda:
 ```sh
@@ -138,7 +154,7 @@ conda activate pypal
 ```
 
 ### **3. Build the Package**
-Build the pacakge locally:
+Build the package locally:
 ```sh
 pip install .
 ```
