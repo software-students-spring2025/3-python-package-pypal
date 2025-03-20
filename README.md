@@ -173,8 +173,4 @@ git push origin your-feature-branch
 [Zifan Zhao](https://github.com/Exiam6)
 
 ## Running the Project on Any Platform
-To ensure cross-platform compatibility, we recommend using a virtual environment as described in the Contributing section. The package is tested on Linux, macOS, and Windows.
-
-## Environment Variables & Data Setup
-
-This package does not require additional environment variables.
+To ensure cross-platform compatibility, we recommend using a virtual environment as described in the Contributing section. The package is tested on Linux, macOS, and Windows. Feel free to explore our work!
